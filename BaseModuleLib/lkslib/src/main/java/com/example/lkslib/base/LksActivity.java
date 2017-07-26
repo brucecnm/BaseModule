@@ -17,7 +17,6 @@ import android.widget.RelativeLayout;
 
 import com.example.lkslib.Utils.NetBroadcastReceiver;
 import com.example.lkslib.views.CommonTitleView;
-import com.umeng.analytics.MobclickAgent;
 
 
 
@@ -88,13 +87,11 @@ public abstract class LksActivity extends AppCompatActivity implements NetBroadc
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
     }
 
     @Override
