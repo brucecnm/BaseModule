@@ -1,0 +1,36 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/barheigt"
+        android:background="#21aaff">
+
+        <TextView
+            android:id="@+id/tv_base_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/barheigt"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_base_back"
+            style="@style/back_icon"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+           />
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="@dimen/barheigt"
+            android:layout_height="@dimen/barheigt"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</merge>

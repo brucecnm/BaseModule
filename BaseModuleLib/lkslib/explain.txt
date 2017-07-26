@@ -1,0 +1,56 @@
+﻿1 在每个Module里面配置：
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }                    
+    }
+2 module之间事件交互（同一个module也可以使用）
+    格式：lks://moduleName/moduleName(可选)/moduleName1/具体的业务方法
+    指定的Url最先收到请求 之后是moduleName然后是moduleName1
+
+    eg:
+    @LksUrl(value = "lks://Main/DemoServlet")
+    public class DemoServlet implements LksServlet {
+        @Override
+        public boolean doPost(@NonNull UrlBean urlBean) {
+    //        do.....
+            Log.d("DemoServlet", "DemoServlet>>>>>>>>>>>收到请求<<<<<<<<<<<<");
+    // false 表示不消耗请求 如果有需要会继续传递
+            return false;
+        }
+    }
+
+    调用：
+    lksBus.post(new BusBean("lks://Main/DemoServlet", "", new TransmitData() {
+                @Override
+                public void succeed(EventResponse o) {
+
+                }
+
+                @Override
+                public void fail(String s) {
+
+                }
+            }));
+3 跳转
+     配置 @Module(value = "faceLib/FaceVideoActivity")
+
+     使用 RouteHelper.openActivity(Intent intent, Context context, int requestCode);
+     Intent intent=new Intent();
+     intent.putExtra(RouteHelper.ROUTE_KEY,"faceLib/FaceVideoActivity");
+4 初始化
+     在项目的Application中
+     EventBus.getDefault().register(this);
+     Router.init(this);
+     LKsUrlInit.init(this);
+     注册EventBus 把事件交给EventHelper处理
+      @Subscribe(threadMode = ThreadMode.MAIN)
+      public void onMainEvent(UrlBean urlBean) {
+             try {
+                 EventHelper.handlerEvent(urlBean);
+             } catch (NoSuchMethodException e) {
+                 e.printStackTrace();
+             }
+      }

@@ -1,0 +1,21 @@
+ext {
+    isBuildApp = false;//false:作为Lib组件存在， true:作为application存在
+    // lib作为单独的开发时用這里没有用到
+
+    android = [
+            compileSdkVersion: 23,
+            buildToolsVersion: "25.0.0",
+            minSdkVersion    : 17,
+            targetSdkVersion : 23,
+            versionCode      : 10,
+            versionName      : '1.10.1',
+
+    ]
+
+    dependencies = [
+            appcompatV7: 'com.android.support:appcompat-v7:23.0.1',
+            design     : 'com.android.support:design:23.0.1',
+            umeng      : 'com.umeng.analytics:analytics:latest.integration',
+            glide      : 'com.github.bumptech.glide:glide:3.7.0',
+    ]
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="back_icon">
+        <item name="android:layout_width">@dimen/barheigt</item>
+        <item name="android:layout_height">@dimen/barheigt</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:src">@drawable/user_back</item>
+       <!-- <item name="android:background">@drawable/sel_bg_user_back</item>-->
+    </style>
+</resources>
