@@ -9,6 +9,6 @@ public class MainActivity extends LksActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setAbContentView(R.layout.activity_main);
+        setAbContentView(R.layout.activity_main); 
     }
 }
